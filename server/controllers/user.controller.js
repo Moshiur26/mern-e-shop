@@ -2,6 +2,19 @@ import User from '../models/user.model'
 import extend from 'lodash/extend'
 import errorHandler from './../helpers/dbErrorHandler'
 
+
+const isAdmin = async (req, res, next) => {
+    // const isAdmin = req.profile && req.profile.admin
+    const isAdmin = req.auth && req.auth.admin
+    if (!isAdmin) {
+        return res.status(403).json({
+            error: "User is not a Admin"
+        })
+    }
+    next()
+  }
+  
+
 const create = async (req, res) => {
     const user = new User(req.body)
     try {
@@ -74,4 +87,4 @@ const remove = async (req, res) => {
         }
 }
 
-export default { create, list, userById, read, update, remove }
+export default { isAdmin, create, list, userById, read, update, remove }
