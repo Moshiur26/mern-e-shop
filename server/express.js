@@ -9,6 +9,7 @@ import Template from './../template'
 import devBundle from './devBundle'
 import userRoutes from './routes/user.routes'
 import productRoutes from './routes/product.routes'
+import orderRoutes from './routes/order.routes'
 import authRoutes from './routes/auth.routes'
 import path from 'path'
 
@@ -41,6 +42,7 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use('/', userRoutes)
 app.use('/', authRoutes)
 app.use('/', productRoutes)
+app.use('/', orderRoutes)
 
 // app.get('/', (req, res) => {
 //     res.status(200).send(Template())
