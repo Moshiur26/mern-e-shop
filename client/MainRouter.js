@@ -13,6 +13,7 @@ import Product from './product/Product'
 import NewProduct from './product/NewProduct'
 import EditProduct from './product/EditProduct'
 import MyShop from './shop/MyShop'
+import Cart from './cart/Cart'
 
 const MainRouter = () => {
     return (<div>
@@ -36,7 +37,7 @@ const MainRouter = () => {
         <PrivateRoute path="/seller/products/new" component={NewProduct}/>
         <PrivateRoute path="/seller/:productId/edit" component={EditProduct}/>
 
-
+        <Route path="/cart" component={Cart}/>
 
       </Switch>
     </div>)

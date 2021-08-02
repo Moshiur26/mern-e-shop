@@ -8,8 +8,8 @@ import Grid from '@material-ui/core/Grid'
 import {makeStyles} from '@material-ui/core/styles'
 import {read, listRelated} from './api-product.js'
 import {Link} from 'react-router-dom'
-// import Suggestions from './../product/Suggestions'
-// import AddToCart from './../cart/AddToCart'
+import Suggestions from './../product/Suggestions'
+import AddToCart from './../cart/AddToCart'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -111,7 +111,7 @@ export default function Product ({match}) {
                   subheader={product.quantity > 0? `In Stock(${product.quantity})`: 'Out of Stock'}
                   action={
                     <span className={classes.action}>
-                      {/* <AddToCart cartStyle={classes.addCart} item={product}/> */}
+                      <AddToCart cartStyle={classes.addCart} item={product}/>
                     </span>
                   }
                 />
@@ -136,7 +136,7 @@ export default function Product ({match}) {
             </Grid>
             {suggestions.length > 0 &&
               (<Grid item xs={5} sm={5}>
-                {/* <Suggestions  products={suggestions} title='Related Products'/> */}
+                <Suggestions  products={suggestions} title='Related Products'/>
               </Grid>)}
           </Grid>
         </div>)
