@@ -9,6 +9,11 @@ import Signin from './auth/Signin'
 import Profile from './user/Profile';
 import EditProfile from './user/EditProfile';
 import Menu from './core/Menu';
+import Product from './product/Product'
+import NewProduct from './product/NewProduct'
+import EditProduct from './product/EditProduct'
+import MyShop from './shop/MyShop'
+
 const MainRouter = () => {
     return (<div>
       <Menu />
@@ -21,6 +26,18 @@ const MainRouter = () => {
         <Route path="/signin" component={Signin}/>
         <Route path="/user/edit/:userId" component={EditProfile}/>
         <Route path="/user/:userId" component={Profile}/>
+
+        <Route path="/product/:productId" component={Product}/>
+
+        {/* <PrivateRoute path="/products/new" component={NewProduct}/>
+        <PrivateRoute path="/products/edit/:productId" component={EditProduct}/> */}
+
+        <PrivateRoute path="/seller/myShop" component={MyShop}/>
+        <PrivateRoute path="/seller/products/new" component={NewProduct}/>
+        <PrivateRoute path="/seller/:productId/edit" component={EditProduct}/>
+
+
+
       </Switch>
     </div>)
 }
