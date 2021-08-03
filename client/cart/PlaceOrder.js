@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Icon from '@material-ui/core/Icon'
 import auth from './../auth/auth-helper'
 import cart from './cart-helper.js'
-// import {create} from './../order/api-order.js'
+import {create} from './../order/api-order.js'
 import {Redirect} from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
@@ -47,17 +47,17 @@ const PlaceOrder = (props) => {
 
   const placeOrder = ()=>{
     const jwt = auth.isAuthenticated()
-    // create({userId:jwt.user._id}, {
-    //     t: jwt.token
-    //     }, props.checkoutDetails).then((data) => {
-    //     if (data.error) {
-    //         setValues({...values, error: data.error})
-    //     } else {
-    //         cart.emptyCart(()=> {
-    //             setValues({...values, 'orderId':data._id,'redirect': true})
-    //         })
-    //     }
-    // })
+    create({userId:jwt.user._id}, {
+        t: jwt.token
+        }, props.checkoutDetails).then((data) => {
+        if (data.error) {
+            setValues({...values, error: data.error})
+        } else {
+            cart.emptyCart(()=> {
+                setValues({...values, 'orderId':data._id,'redirect': true})
+            })
+        }
+    })
     }
 
 

@@ -35,8 +35,8 @@ const Menu = withRouter(({history}) => (
             <HomeIcon/>
           </IconButton>
         </Link>
-        <Link to="/shops/all">
-          <Button style={isActive(history, "/shops/all")}>All Shops</Button>
+        <Link to="/seller/MyShop">
+          <Button style={isActive(history, "/seller/MyShop")}>My Shop</Button>
         </Link>
         {/* <Link to="/auctions/all">
           <Button style={isActive(history, "/auctions/all")}>All Auctions</Button>

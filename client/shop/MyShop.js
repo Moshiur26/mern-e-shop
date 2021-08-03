@@ -30,7 +30,8 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.openTitle
   },
   addButton:{
-    float:'right'
+    float:'right',
+    margin: 5
   },
   bigAvatar: {
     width: 100,
@@ -110,6 +111,13 @@ export default function Shop({match}) {
             <Link to="/seller/products/new">
               <Button color="primary" variant="contained">
                 <Icon className={classes.leftIcon}>add_box</Icon>  New Product
+              </Button>
+            </Link>
+          </span>
+          <span className={classes.addButton}>
+            <Link to="/seller/orders">
+              <Button color="primary" variant="contained">
+                All Orders
               </Button>
             </Link>
           </span>

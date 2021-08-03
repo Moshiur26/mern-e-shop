@@ -14,6 +14,8 @@ import NewProduct from './product/NewProduct'
 import EditProduct from './product/EditProduct'
 import MyShop from './shop/MyShop'
 import Cart from './cart/Cart'
+import Order from './order/Order'
+import ShopOrders from './order/ShopOrders'
 
 const MainRouter = () => {
     return (<div>
@@ -30,8 +32,8 @@ const MainRouter = () => {
 
         <Route path="/product/:productId" component={Product}/>
 
-        {/* <PrivateRoute path="/products/new" component={NewProduct}/>
-        <PrivateRoute path="/products/edit/:productId" component={EditProduct}/> */}
+        <Route path="/order/:orderId" component={Order}/>
+        <PrivateRoute path="/seller/orders" component={ShopOrders}/>
 
         <PrivateRoute path="/seller/myShop" component={MyShop}/>
         <PrivateRoute path="/seller/products/new" component={NewProduct}/>

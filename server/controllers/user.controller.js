@@ -4,8 +4,8 @@ import errorHandler from './../helpers/dbErrorHandler'
 
 
 const isAdmin = async (req, res, next) => {
-    // const isAdmin = req.profile && req.profile.admin
-    const isAdmin = req.auth && req.auth.admin
+    const isAdmin = req.profile && req.auth && req.profile._id == req.auth._id && req.profile.admin
+    console.log("isAdmin: ", isAdmin);
     if (!isAdmin) {
         return res.status(403).json({
             error: "User is not a Admin"
@@ -46,6 +46,7 @@ const userById = async (req, res, next, id) => {
                 error: "User not found"
             })
         req.profile = user
+        console.log("req.profile: ", req.profile);
         next()
     } catch (err) {
         return res.status('400').json({

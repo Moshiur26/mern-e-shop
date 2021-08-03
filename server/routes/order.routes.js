@@ -27,8 +27,8 @@ router.route('/api/order/status')
 router.route('/api/order/:orderId')
   .get(orderCtrl.read)
 
-router.route('/api/orders/')
-.get(authCtrl.requireSignin, userCtrl.isAdmin, orderCtrl.list)
+router.route('/api/orders/admin/:userId')
+  .get(authCtrl.requireSignin, userCtrl.isAdmin, orderCtrl.list)
   
 router.param('userId', userCtrl.userById)
 router.param('productId', productCtrl.productByID)
