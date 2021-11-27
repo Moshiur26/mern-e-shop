@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Grid from '@material-ui/core/Grid'
 import {makeStyles} from '@material-ui/core/styles'
 import CartItems from './CartItems'
-import Checkout from './Checkout'
+import Checkout from './CheckOut'
 
 const useStyles = makeStyles(theme => ({
   root: {
